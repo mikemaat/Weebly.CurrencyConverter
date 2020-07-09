@@ -24,7 +24,7 @@ window.onload = function() {
 					console.log("error: " + textStatus);
 					console.log("error: " + errorThrown);
 				}
-			});*/
+			});
 		}
 	});
 }
