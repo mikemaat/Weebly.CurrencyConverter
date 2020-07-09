@@ -8,8 +8,11 @@ window.onload = function() {
 			console.log("Price Found: " + foundPrice);
 			var indexOfDollarSign = foundPrice.indexOf('$') + 1;
 			var rawPrice = foundPrice.substr(indexOfDollarSign, foundPrice.length - indexOfDollarSign);
-
-			$.ajax({
+			
+			$.getJSON('http://data.fixer.io/api/latest?access_key=' + fixerAPIKey, function(data) {
+				console.log(data);	
+			});
+			/*$.ajax({
 				url: 'http://data.fixer.io/api/latest?access_key=' + fixerAPIKey,   
 				dataType: 'jsonp',
 				success: function(json) {
@@ -24,7 +27,7 @@ window.onload = function() {
 					console.log("error: " + textStatus);
 					console.log("error: " + errorThrown);
 				}
-			});
+			});*/
 		}
 	});
 }
