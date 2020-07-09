@@ -9,11 +9,8 @@ window.onload = function() {
 			var indexOfDollarSign = foundPrice.indexOf('$') + 1;
 			var rawPrice = foundPrice.substr(indexOfDollarSign, foundPrice.length - indexOfDollarSign);
 			
-			$.getJSON('http://data.fixer.io/api/latest?access_key=' + fixerAPIKey, function(data) {
-				console.log(data);	
-			});
-			/*$.ajax({
-				url: 'http://data.fixer.io/api/latest?access_key=' + fixerAPIKey,   
+			$.ajax({
+				url: 'https://api.exchangeratesapi.io/latest',   
 				dataType: 'jsonp',
 				success: function(json) {
 					alert(json.rates.CAD);
