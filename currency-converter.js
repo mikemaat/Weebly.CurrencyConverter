@@ -11,12 +11,12 @@ window.onload = function() {
 			
 			$.ajax({
 				url: 'https://api.exchangeratesapi.io/latest',   
-				dataType: 'jsonp',
+				dataType: 'json',
 				success: function(json) {
-					alert(json.rates.CAD);
-					alert(json.rates.USD);
+					console.log(json.rates.CAD);
+					console.log(json.rates.USD);
 					var conversionRate = json.rates.CAD / json.rates.USD;
-					alert(conversionRate);
+					console.log(conversionRate);
 					var convertedPrice = parseFloat(rawPrice * conversionRate).toFixed(2);
 					$("<span style=\"display: block; font-size: 0.5em; margin-top: 5px; color: #777777;\">(Approx $" + convertedPrice + " USD)</span>" ).insertAfter($(this));
 				},
