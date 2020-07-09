@@ -17,7 +17,7 @@ window.onload = function() {
 				success: function(json) {
 					var conversionRate = json.rates[targetCurrency] / json.rates[sourceCurrency];
 					var convertedPrice = parseFloat(rawPrice * conversionRate).toFixed(2);
-					$("<span style=\"display: block; font-size: 0.5em; margin-top: 5px; color: #777777;\">(Approx $" + convertedPrice + targetCurrency")</span>" ).insertAfter(priceSpan);
+					$("<span style=\"display: block; font-size: 0.5em; margin-top: 5px; color: #777777;\">(Approx $" + convertedPrice + " " + targetCurrency +")</span>" ).insertAfter(priceSpan);
 				},
 				error: function(XHR, textStatus, errorThrown) {
 					console.log("error: " + textStatus);
