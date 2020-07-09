@@ -1,6 +1,6 @@
 // Currency Conversion Script
 window.onload = function() {
-	var sourceCurrency = $("meta.priceCurrency").attr("content");
+	var sourceCurrency = $("meta[itemprop='priceCurrency']").attr("content");
 	console.log("Source Currency: " + sourceCurrency);
 	
 	$("span.wsite-com-product-price-amount").each(function() {
