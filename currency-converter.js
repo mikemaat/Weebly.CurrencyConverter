@@ -10,7 +10,7 @@ window.onload = function() {
 			var rawPrice = foundPrice.substr(indexOfDollarSign, foundPrice.length - indexOfDollarSign);
 
 			$.ajax({
-			    url: 'https://data.fixer.io/api/latest?access_key=' + fixerAPIKey,   
+			    url: 'http://data.fixer.io/api/latest?access_key=' + fixerAPIKey,   
 			    dataType: 'jsonp',
 			    success: function(json) {
 			    	alert(json.rates.CAD);
