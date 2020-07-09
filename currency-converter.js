@@ -10,16 +10,20 @@ window.onload = function() {
 			var rawPrice = foundPrice.substr(indexOfDollarSign, foundPrice.length - indexOfDollarSign);
 
 			$.ajax({
-			    url: 'http://data.fixer.io/api/latest?access_key=' + fixerAPIKey,   
-			    dataType: 'jsonp',
-			    success: function(json) {
-			    	alert(json.rates.CAD);
-			    	alert(json.rates.USD);
-			    	var conversionRate = json.rates.CAD / json.rates.USD;
-				alert(conversionRate);
-			    	var convertedPrice = parseFloat(rawPrice * conversionRate).toFixed(2);
-				$("<span style=\"display: block; font-size: 0.5em; margin-top: 5px; color: #777777;\">(Approx $" + convertedPrice + " USD)</span>" ).insertAfter($(this));
-			    }
+				url: 'http://data.fixer.io/api/latest?access_key=' + fixerAPIKey,   
+				dataType: 'jsonp',
+				success: function(json) {
+					alert(json.rates.CAD);
+					alert(json.rates.USD);
+					var conversionRate = json.rates.CAD / json.rates.USD;
+					alert(conversionRate);
+					var convertedPrice = parseFloat(rawPrice * conversionRate).toFixed(2);
+					$("<span style=\"display: block; font-size: 0.5em; margin-top: 5px; color: #777777;\">(Approx $" + convertedPrice + " USD)</span>" ).insertAfter($(this));
+				},
+				error: function(XHR, textStatus, errorThrown) {
+					console.log("error: " + textStatus);
+					console.log("error: " + errorThrown);
+				}
 			});
 		}
 	});
