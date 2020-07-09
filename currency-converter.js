@@ -16,7 +16,7 @@ window.onload = function() {
 				success: function(json) {
 					console.log("CAD: " + json.rates.CAD);
 					console.log("USD: " + json.rates.USD);
-					var conversionRate = json.rates.CAD / json.rates.USD;
+					var conversionRate = json.rates.USD / json.rates.CAD;
 					console.log("Conversion Rate: " + conversionRate);
 					var convertedPrice = parseFloat(rawPrice * conversionRate).toFixed(2);
 					console.log("Converted Price: " + convertedPrice);
